@@ -43,6 +43,7 @@ This script provides a workaround for calibrating flow rate on the **Bambu Lab H
 
 ## 🎯 Important Notes
 
-- The filament must be loaded in the **first AMS slot** (left nozzle).
+- When slicing make sure to have only **ONE** filament listed under the **Project Filaments** section in Bambu Studio.
+- The filament must be loaded in the left nozzle (for some reason it won't let you change to the right nozzle).
 - This script is intended for use with **flow calibration prints**, not general models.
 - This script only supports **0.4mm nozzles** and **0.2mm layer height** for now (will add more command line arguments later).
