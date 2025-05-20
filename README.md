@@ -37,7 +37,7 @@ This script provides a workaround for calibrating flow rate on the **Bambu Lab H
 
     - If the **top surface speed and solid infill speed** need changing, then start over from **step 1** after changing the settings.
 
-6. **Send the modified G-code to your H2D** — via **USB flash drive** (required for the send function to work in Bambu Studio).
+6. **Send the modified G-code to your H2D**, either copy it directly to a **USB flash drive** or plug the USB **USB flash drive** in the H2D and use the **Send** feature in Bambu Studio.
 
 ---
 
