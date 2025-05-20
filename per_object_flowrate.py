@@ -38,7 +38,6 @@ class PerObjFlow:
         self.gcode_data = self.read_gcode_file()
         self.model_info = self.get_model_info()
         self.obj_flow = self.calc_flow_ratios()
-        print(self.obj_flow)
 
         if mv_speed > 0:
             modifier = 0.05 if self.cali_pass == 1 else 0.035
@@ -46,13 +45,16 @@ class PerObjFlow:
             nozzle_diameter = 0.4
             line_width = nozzle_diameter * 1.2
             infill_speed = mv_speed / ((layer_height * (line_width - layer_height * (1 - 0.25 * math.pi))) * (modifier + self.model_info['base_flowrate']) / self.model_info['base_flowrate'])
-            print(f'Please set the following settings in the slicer:')
-            print(f'Line width:')
-            print(f'    Top surface: {line_width}')
-            print(f'    Internal solid infill: {line_width}')
-            print(f'Speed:')
-            print(f'    Top surface: {min(self.model_info['top_surface_speed'], math.floor(infill_speed))}')
-            print(f'    Internal solid infill: {min(self.model_info['internal_solid_infill_speed'], math.floor(infill_speed))}')
+
+            settings_str = \
+                f'Please set the following settings in the slicer:\n' + \
+                f'Line width:\n' + \
+                f'    Top surface: {line_width}\n' + \
+                f'    Internal solid infill: {line_width}\n' + \
+                f'Speed:\n' + \
+                f'    Top surface: {min(self.model_info['top_surface_speed'], math.floor(infill_speed))}\n' + \
+                f'    Internal solid infill: {min(self.model_info['internal_solid_infill_speed'], math.floor(infill_speed))}\n'
+            print(settings_str)
 
         self.change_flow_ratios()
         self.write_gcode_file()
